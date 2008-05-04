@@ -1,8 +1,8 @@
 Name:    global
-Version: 5.6.2
+Version: 5.7.1
 Release: %mkrel 1
 Summary: GNU GLOBAL source code tag system for all hackers
-Source0: %{name}-%{version}.tar.gz
+Source0: http://tamacom.com/global/%{name}-%{version}.tar.gz
 License: GPLv3
 Group:   Development/Other
 Url:     http://www.gnu.org/software/global/
@@ -83,10 +83,10 @@ rm -rf %{buildroot}
 %dir %_datadir/gtags
 %_datadir/gtags/bless.sh.tmpl
 %_datadir/gtags/global.cgi.tmpl
+%_datadir/gtags/ghtml.cgi.tmpl
 %_datadir/gtags/globash.rc
 %_datadir/gtags/gtags.pl
 %_datadir/gtags/gtags.vim
 %_datadir/gtags/icons/*
-%_datadir/gtags/nvi-1.79-gtags.diff
 %_datadir/gtags/style.css
 
