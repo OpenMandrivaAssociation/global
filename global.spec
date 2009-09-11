@@ -1,6 +1,6 @@
 Name:    global
 Version: 5.7.5
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: GNU GLOBAL source code tag system for all hackers
 Source0: http://tamacom.com/global/%{name}-%{version}.tar.gz
 Patch0:  global-5.7.5-fix-str-fmt.patch
