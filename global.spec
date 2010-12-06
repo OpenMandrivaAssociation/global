@@ -11,7 +11,6 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires(post): info-install
 Requires(preun): info-install
 
-
 %description
 GNU GLOBAL is a source code tag system that works the same way across
 diverse environments. It supports C, C++, Yacc, Java, PHP4 and assembler
@@ -22,16 +21,13 @@ $ tar -zxf foo-0.3.4.tar.gz && cd foo-0.3.4
 $ gtags && htags -a -s -n
 $ www-browser ./HTML/files.html
 
-
 %prep
 %setup -q
 %patch0 -p1
 
-
 %build
 %configure2_5x
 %make
-
 
 %install
 rm -rf %{buildroot}
@@ -78,7 +74,7 @@ rm -rf %{buildroot}
 %_mandir/man1/gtags-parser.1.*
 %_mandir/man1/gtags.1.*
 %_mandir/man1/htags.1.*
-%_infodir/global.info.lzma
+%_infodir/global.info.*
 %config(noreplace) %_sysconfdir/emacs/site-start.d/%name.el
 %config(noreplace) %_sysconfdir/gtags.conf
 %_datadir/emacs/site-lisp/gtags.el
