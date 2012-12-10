@@ -72,3 +72,37 @@ sed -e 's/gzipped_suffix=ghtml/gzipped_suffix=html.gz/' <gtags.conf >%{buildroot
 %{_datadir}/gtags/icons/*
 %{_datadir}/gtags/style.css
 
+
+
+%changelog
+* Thu Jun 14 2012 Andrey Bondrov <abondrov@mandriva.org> 5.7.5-4
++ Revision: 805545
+- Drop some legacy junk
+
+* Mon Dec 06 2010 Funda Wang <fwang@mandriva.org> 5.7.5-3mdv2011.0
++ Revision: 611834
+- update file list
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - rebuild
+
+* Fri Sep 11 2009 Thierry Vignaud <tv@mandriva.org> 5.7.5-2mdv2010.1
++ Revision: 437741
+- rebuild
+
+* Thu Mar 19 2009 Gustavo De Nardin <gustavodn@mandriva.com> 5.7.5-1mdv2009.1
++ Revision: 357625
+- new version 5.7.5
+- Patch0: fix string format
+
+* Thu Aug 07 2008 Thierry Vignaud <tv@mandriva.org> 5.7.1-2mdv2009.0
++ Revision: 266885
+- rebuild early 2009.0 package (before pixel changes)
+
+* Sun May 04 2008 Gustavo De Nardin <gustavodn@mandriva.com> 5.7.1-1mdv2009.0
++ Revision: 201172
+- new version 5.7.1
+
+
+* Wed Jan 23 2008 Gustavo De Nardin <gustavodn@mandriva.com> 5.6.2-1mdv2008.1
+- initial Mandriva package
