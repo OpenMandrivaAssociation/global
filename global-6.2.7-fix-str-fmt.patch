@@ -1,0 +1,95 @@
+--- global-5.7.5/global/global.c
++++ global-5.7.5/global/global.c
+@@ -315,10 +315,10 @@ main(int argc, char **argv)
+ 			while (*p && isdigit(*p))
+ 				p++;
+ 			if (*p != ':')
+-				die_with_code(2, usage);
++				die_with_code(2, "%s", usage);
+ 			*p++ = '\0';
+ 			if (!*p)
+-				die_with_code(2, usage);
++				die_with_code(2, "%s", usage);
+ 			context_file = p;
+ 			}
+ 			break;
+--- global-6.2.7/libutil/dbop.c~	2012-12-22 00:43:58.000000000 +0000
++++ global-6.2.7/libutil/dbop.c	2012-12-24 05:19:59.245400081 +0000
+@@ -189,7 +189,7 @@
+ 		static int informed;
+ 
+ 		if (!informed) {
+-			warning(sortnotfound);
++			warning("%s", sortnotfound);
+ 			informed = 1;
+ 		}
+ 		return;
+@@ -385,7 +385,7 @@
+ 		break;
+ 	case RET_ERROR:
+ 	case RET_SPECIAL:
+-		die(dbop->put_errmsg ? dbop->put_errmsg : "dbop_put failed.");
++		die("%s", dbop->put_errmsg ? dbop->put_errmsg : "dbop_put failed.");
+ 	}
+ }
+ /**
+@@ -421,7 +421,7 @@
+ 		break;
+ 	case RET_ERROR:
+ 	case RET_SPECIAL:
+-		die(dbop->put_errmsg ? dbop->put_errmsg : "dbop_put_withlen failed.");
++		die("%s", dbop->put_errmsg ? dbop->put_errmsg : "dbop_put_withlen failed.");
+ 	}
+ }
+ /**
+--- global-6.2.7/global/global.c~	2012-12-22 00:43:58.000000000 +0000
++++ global-6.2.7/global/global.c	2012-12-24 13:15:38.069041416 +0000
+@@ -603,7 +603,7 @@
+ 	{
+ 		int status = setupdbpath(pflag && vflag);
+ 		if (status < 0)
+-			die_with_code(-status, gtags_dbpath_error);
++			die_with_code(-status, "%s", gtags_dbpath_error);
+ 		cwd = get_cwd();
+ 		root = get_root();
+ 		dbpath = get_dbpath();
+--- global-6.2.7/htags/cflowindex.c~	2012-12-22 00:43:58.000000000 +0000
++++ global-6.2.7/htags/cflowindex.c	2012-12-24 13:20:50.361037349 +0000
+@@ -163,7 +163,7 @@
+ 		/*
+ 		 * print anchor
+ 		 */
+-		fprintf(op, gen_name_number(atoi(anchor)));
++		fprintf(op, "%s", gen_name_number(atoi(anchor)));
+ 		/*
+ 		 * print until name
+ 		 */
+@@ -178,7 +178,7 @@
+ 
+ 			*path_end = *lineno_end = 0;
+ 			if (test("f", path) && (fid = path2fid_readonly(path)) != NULL)
+-				fprintf(op, gen_href_begin(SRCS, fid, HTML, lineno));
++				fprintf(op, "%s", gen_href_begin(SRCS, fid, HTML, lineno));
+ 			else
+ 				path = lineno = NULL;		/* not to print </a> */
+ 			*path_end = path_save;
+@@ -187,7 +187,7 @@
+ 			int lineno_save = *lineno_end;
+ 
+ 			*lineno_end = 0;
+-			fprintf(op, gen_href_begin(NULL, NULL, NULL, lineno));
++			fprintf(op, "%s", gen_href_begin(NULL, NULL, NULL, lineno));
+ 			*lineno_end = lineno_save;
+ 		}
+ 		fwrite(name, name_end - name, 1, op);
+--- global-6.2.7/htags/htags.c~	2012-12-22 00:43:58.000000000 +0000
++++ global-6.2.7/htags/htags.c	2012-12-24 13:23:52.144035386 +0000
+@@ -1838,7 +1838,7 @@
+ 	{
+ 		int status = setupdbpath(0);			/* for parsers */
+ 		if (status < 0)
+-			die_with_code(-status, gtags_dbpath_error);
++			die_with_code(-status, "%s", gtags_dbpath_error);
+ 	}
+ 	if (cflag && !usable("gzip")) {
+ 		warning("'gzip' command not found. -c option ignored.");
