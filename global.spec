@@ -1,7 +1,7 @@
 Summary:	GNU GLOBAL source code tag system for all hackers
 Name:		global
 Version:	6.2.7
-Release:	1
+Release:	2
 License:	GPLv3
 Group:		Development/Other
 Url:		http://www.gnu.org/software/global/
