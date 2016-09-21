@@ -1,12 +1,11 @@
 Summary:	GNU GLOBAL source code tag system for all hackers
 Name:		global
-Version:	6.2.7
-Release:	2
+Version:	6.5.5
+Release:	1
 License:	GPLv3
 Group:		Development/Other
 Url:		http://www.gnu.org/software/global/
 Source0:	http://ftp.gnu.org/gnu/global/%{name}-%{version}.tar.gz
-Source1:	http://ftp.gnu.org/gnu/global/%{name}-%{version}.tar.gz.sig
 Patch0:		global-6.2.7-fix-str-fmt.patch
 
 BuildRequires:	pkgconfig(ncurses)
@@ -26,7 +25,7 @@ $ www-browser ./HTML/files.html
 %apply_patches
 
 %build
-%configure2_5x \
+%configure \
 	--enable-shared \
 	--disable-static
 
@@ -50,8 +49,8 @@ popd
 sed -e 's/gzipped_suffix=ghtml/gzipped_suffix=html.gz/' <gtags.conf >%{buildroot}%{_sysconfdir}/gtags.conf
 
 %files
-%doc AUTHORS BOKIN_MODEL BOKIN_MODEL_FAQ COPYING ChangeLog DONORS FAQ
-%doc INSTALL LICENSE NEWS README THANKS gtags.conf
+%doc AUTHORS BOKIN_MODEL BOKIN_MODEL_FAQ DONORS FAQ
+%doc LICENSE NEWS README THANKS gtags.conf
 %config(noreplace) %{_sysconfdir}/emacs/site-start.d/%{name}.el
 %config(noreplace) %{_sysconfdir}/gtags.conf
 %{_bindir}/global
