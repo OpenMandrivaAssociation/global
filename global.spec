@@ -1,12 +1,11 @@
 Summary:	GNU GLOBAL source code tag system for all hackers
 Name:		global
-Version:	6.5.5
+Version:	6.6.5
 Release:	1
 License:	GPLv3
 Group:		Development/Other
 Url:		http://www.gnu.org/software/global/
-Source0:	http://ftp.gnu.org/gnu/global/%{name}-%{version}.tar.gz
-Patch0:		global-6.2.7-fix-str-fmt.patch
+Source0:	https://ftp.gnu.org/pub/gnu/global/%{name}-%{version}.tar.gz
 
 BuildRequires:	pkgconfig(ncurses)
 
@@ -49,8 +48,9 @@ popd
 sed -e 's/gzipped_suffix=ghtml/gzipped_suffix=html.gz/' <gtags.conf >%{buildroot}%{_sysconfdir}/gtags.conf
 
 %files
-%doc AUTHORS BOKIN_MODEL BOKIN_MODEL_FAQ DONORS FAQ
-%doc LICENSE NEWS README THANKS gtags.conf
+%doc AUTHORS DONORS FAQ
+%doc NEWS README THANKS gtags.conf
+%license LICENSE COPYING.LIB
 %config(noreplace) %{_sysconfdir}/emacs/site-start.d/%{name}.el
 %config(noreplace) %{_sysconfdir}/gtags.conf
 %{_bindir}/global
@@ -59,14 +59,25 @@ sed -e 's/gzipped_suffix=ghtml/gzipped_suffix=html.gz/' <gtags.conf >%{buildroot
 %{_bindir}/gtags
 %{_bindir}/gtags-cscope
 %{_bindir}/htags
+%{_bindir}/htags-server
 %{_datadir}/emacs/site-lisp/gtags.el
+%{_datadir}/gtags/COPYING.LIB
+%{_datadir}/gtags/PLUGIN_HOWTO
+%{_datadir}/gtags/PLUGIN_HOWTO.pygments
+%{_datadir}/gtags/README.PATCHES
+%{_datadir}/gtags/SERVERSIDE_HOWTO
+%{_datadir}/gtags/completion.cgi
+%{_datadir}/gtags/dot_htaccess
+%{_datadir}/gtags/global.cgi
+%{_datadir}/gtags/jscode_suggest
+%{_datadir}/gtags/jscode_treeview
+%{_datadir}/gtags/style.css
+%{_datadir}/gtags/vim74-gtags-cscope.patch
 %dir %{_datadir}/gtags
 %dir %{_datadir}/gtags/icons
-%{_datadir}/gtags/*.dox
 %{_datadir}/gtags/elvis-2.2_0.patch
 %{_datadir}/gtags/*.pl
 %{_datadir}/gtags/*.rc
-%{_datadir}/gtags/*.tmpl
 %{_datadir}/gtags/*.vim
 %{_datadir}/gtags/icons/*
 %{_datadir}/gtags/jquery
@@ -77,6 +88,10 @@ sed -e 's/gzipped_suffix=ghtml/gzipped_suffix=html.gz/' <gtags.conf >%{buildroot
 %{_mandir}/man1/gtags-cscope.1*
 %{_mandir}/man1/gtags.1*
 %{_mandir}/man1/htags.1*
+%{_mandir}/man1/htags-server.1*
+%{_mandir}/man5/gtags.conf.5*
 %{_infodir}/global.info.*
 %{_libdir}/gtags/exuberant-ctags.so
 %{_libdir}/gtags/user-custom.so
+%{_libdir}/gtags/pygments-parser.so
+%{_libdir}/gtags/universal-ctags.so
