@@ -4,7 +4,7 @@ Version:	6.6.5
 Release:	1
 License:	GPLv3
 Group:		Development/Other
-Url:		http://www.gnu.org/software/global/
+Url:		https://www.gnu.org/software/global/
 Source0:	https://ftp.gnu.org/pub/gnu/global/%{name}-%{version}.tar.gz
 
 BuildRequires:	pkgconfig(ncurses)
